@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import project.software.domain.user.domain.User;
+import project.taes_cloud.domain.user.domain.User;
 
 import java.util.Collection;
 

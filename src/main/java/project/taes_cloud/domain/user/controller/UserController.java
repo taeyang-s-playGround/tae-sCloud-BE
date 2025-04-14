@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import project.software.domain.user.controller.dto.response.GetMyPageResponse;
-import project.software.domain.user.service.GetMyPageService;
+import project.taes_cloud.domain.user.controller.dto.response.GetMyPageResponse;
+import project.taes_cloud.domain.user.service.GetMyPageService;
 
 @RestController
 @RequiredArgsConstructor

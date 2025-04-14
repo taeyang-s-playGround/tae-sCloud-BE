@@ -7,9 +7,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import project.software.global.security.config.error.exception.CustomException;
-import project.software.global.security.config.error.exception.ErrorCode;
-import project.software.global.security.config.error.exception.ErrorResponse;
+import project.taes_cloud.global.security.config.error.exception.CustomException;
+import project.taes_cloud.global.security.config.error.exception.ErrorCode;
+import project.taes_cloud.global.security.config.error.exception.ErrorResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<ErrorResponse> handleBusinessException(CustomException e) {
+    public ResponseEntity<project.taes_cloud.global.security.config.error.exception.ErrorResponse> handleBusinessException(CustomException e) {
         ErrorCode errorCode = e.getErrorCode();
         ErrorResponse response = ErrorResponse.of(errorCode);
 

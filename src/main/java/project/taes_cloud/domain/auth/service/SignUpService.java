@@ -4,12 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.software.domain.auth.controller.dto.request.SignUpRequest;
-import project.software.domain.auth.controller.dto.request.response.TokenResponse;
-import project.software.domain.user.domain.User;
-import project.software.domain.user.domain.repository.UserRepository;
-import project.software.domain.user.exception.UserAlreadyExistsException;
-import project.software.global.security.security.jwt.JwtTokenProvider;
+import project.taes_cloud.domain.auth.controller.dto.request.SignUpRequest;
+import project.taes_cloud.domain.auth.controller.dto.request.response.TokenResponse;
+import project.taes_cloud.domain.user.domain.User;
+import project.taes_cloud.domain.user.domain.repository.UserRepository;
+import project.taes_cloud.domain.user.exception.UserAlreadyExistsException;
+import project.taes_cloud.global.security.security.jwt.JwtTokenProvider;
 
 @RequiredArgsConstructor
 @Service

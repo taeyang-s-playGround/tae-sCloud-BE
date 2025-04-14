@@ -1,9 +1,8 @@
 package project.taes_cloud.domain.auth.controller.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
 
 @NoArgsConstructor
 @Getter

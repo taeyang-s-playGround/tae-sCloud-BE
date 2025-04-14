@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-import project.software.domain.user.domain.repository.UserRepository;
-import project.software.domain.user.exception.UserNotFoundException;
+import project.taes_cloud.domain.user.domain.repository.UserRepository;
+import project.taes_cloud.domain.user.exception.UserNotFoundException;
 
 @RequiredArgsConstructor
 @Service

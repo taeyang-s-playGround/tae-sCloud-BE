@@ -2,7 +2,7 @@ package project.taes_cloud.domain.user.controller.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import project.software.domain.user.domain.User;
+import project.taes_cloud.domain.user.domain.User;
 
 @Getter
 @AllArgsConstructor

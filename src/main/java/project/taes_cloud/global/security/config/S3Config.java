@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import project.software.global.security.config.properties.S3Properties;
+import project.taes_cloud.global.security.config.properties.S3Properties;
 
 @Configuration
 @RequiredArgsConstructor

@@ -3,9 +3,9 @@ package project.taes_cloud.domain.auth.facade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import project.software.domain.user.domain.User;
-import project.software.domain.user.domain.repository.UserRepository;
-import project.software.domain.user.exception.UserNotFoundException;
+import project.taes_cloud.domain.user.domain.User;
+import project.taes_cloud.domain.user.domain.repository.UserRepository;
+import project.taes_cloud.domain.user.exception.UserNotFoundException;
 
 @Component
 @RequiredArgsConstructor

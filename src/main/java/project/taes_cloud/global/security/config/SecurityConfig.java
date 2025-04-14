@@ -12,8 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import project.software.global.security.security.jwt.JwtTokenFilter;
-import project.software.global.security.security.jwt.JwtTokenProvider;
+import project.taes_cloud.global.security.security.jwt.JwtTokenFilter;
+import project.taes_cloud.global.security.security.jwt.JwtTokenProvider;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
