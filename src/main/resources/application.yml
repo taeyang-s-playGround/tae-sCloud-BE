@@ -1,0 +1,57 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/software}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:070211}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  redis:
+    port: 6379
+    host: 127.0.0.1
+    password: asdf
+
+jwt:
+  header: ${HEADER:Authorization}
+  prefix : ${PREFIX:Bearer}
+  secret-key: ${JWT_SECRET_KEY:dfhasjkdfhayffhdtyhdhydshghjkdfaskverafter}
+  access-exp: ${JWT_ACCESS_EXP:10000}
+  refresh-exp: ${JWT_REFRESH_EXP:604800}
+
+logging:
+  level:
+    com.example : DEBUG
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
+cloud:
+  aws:
+    credentials:
+      accessKey: ${AWS_ACCESS_KEY:d}
+      secretKey: ${AWS_ACCESS_KEY:d}
+    s3:
+      bucket: ${BUCKET:d}
+    region:
+      static: ${STATIC:d}
+
+fcm:
+  path: ${FCM_PATH:d}
