@@ -1,4 +1,4 @@
-package psilmu.taes_cloud
+package project.taes_cloud
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
