@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/test}
+    url: ${DB_URL:jdbc:mysql://localhost:3306/taescloud}
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:070211}
     driver-class-name: com.mysql.cj.jdbc.Driver

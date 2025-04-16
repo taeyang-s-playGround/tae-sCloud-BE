@@ -7,17 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import project.taes_cloud.domain.user.controller.dto.response.GetMyPageResponse;
-import project.taes_cloud.domain.user.service.GetMyPageService;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
 public class UserController {
-    private final GetMyPageService getMyPageService;
 
-    @GetMapping("/my-page")
-    @ResponseStatus(HttpStatus.OK)
-    public GetMyPageResponse getMyPage() {
-        return getMyPageService.execute();
-    }
 }
