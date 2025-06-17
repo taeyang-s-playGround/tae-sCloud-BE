@@ -45,6 +45,12 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+	//tus
+	implementation "me.desair.tus:tus-java-server:1.0.0-2.0"
+
+	//ffmpeg
+	implementation "net.bramp.ffmpeg:ffmpeg:0.7.0"
+
 }
 
 tasks.named('test') {
