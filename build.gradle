@@ -50,7 +50,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	//tus
-	implementation "me.desair.tus:tus-java-server:1.0.0-2.0"
+	implementation 'me.desair.tus:tus-java-server:1.0.0-3.0'
+	implementation 'io.tus.java.client:tus-java-client:0.5.1'
 
 	//ffmpeg
 	implementation "net.bramp.ffmpeg:ffmpeg:0.7.0"

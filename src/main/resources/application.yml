@@ -1,3 +1,9 @@
+tus:
+  server:
+    data:
+      directory: "C:/taes"
+      expiration: 60000
+
 spring:
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3306/taescloud}
@@ -19,13 +25,13 @@ spring:
 
   servlet:
     multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
-
-ffmpeg:
-  path: /usr/local/bin/ffmpeg
-ffprobe:
-  path: /usr/local/bin/ffprobe
+      max-file-size: -1
+      max-request-size: -1
+  application:
+    name: tus
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 jwt:
   header: ${HEADER:Authorization}
@@ -55,7 +61,3 @@ cloud:
 
 fcm:
   path: ${FCM_PATH:d}
-
-tus:
-  save:
-    path: ${TUS_SAVE_PATH:d}

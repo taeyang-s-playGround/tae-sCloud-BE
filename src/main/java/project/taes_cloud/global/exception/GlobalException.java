@@ -17,14 +17,24 @@ public class GlobalException {
 
     @ExceptionHandler(InvalidJwtException.class)
     public ResponseEntity<ErrorResponse> handleInvalidJwtException(InvalidJwtException ex) {
-        ErrorResponse errorResponse = new ErrorResponse(ErrorCode.INVALID_TOKEN.getMessage(), ErrorCode.INVALID_TOKEN.getStatus());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
+        ErrorCode errorCode = ErrorCode.INVALID_TOKEN;
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .status(errorCode.getStatus().value())
+            .code("INVALID_TOKEN")
+            .message(errorCode.getMessage())
+            .build();
+        return ResponseEntity.status(errorCode.getStatus()).body(errorResponse);
     }
 
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ErrorResponse> handleCustomException(CustomException exception) {
         ErrorCode errorCode = exception.getErrorCode();
-        return new ResponseEntity<>(new ErrorResponse(errorCode.getMessage(), errorCode.getStatus()), errorCode.getStatus());
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .status(errorCode.getStatus().value())
+            .code(errorCode.name())
+            .message(errorCode.getMessage())
+            .build();
+        return ResponseEntity.status(errorCode.getStatus()).body(errorResponse);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -36,13 +46,24 @@ public class GlobalException {
             .findFirst()
             .orElse("Validation error");
 
-        return new ResponseEntity<>(new ErrorResponse(ErrorCode.BAD_REQUEST.getMessage(), ErrorCode.BAD_REQUEST.getStatus()), ErrorCode.BAD_REQUEST.getStatus());
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .status(HttpStatus.BAD_REQUEST.value())
+            .code("INVALID_INPUT")
+            .message(errorMessage)
+            .build();
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception exception) {
         log.error("Unexpected error occurred", exception);
-        String message = exception.getMessage() != null ? exception.getMessage() : "Unexpected server error";
-        return new ResponseEntity<>(new ErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR.getMessage(), ErrorCode.INTERNAL_SERVER_ERROR.getStatus()), ErrorCode.INTERNAL_SERVER_ERROR.getStatus());
+        ErrorCode errorCode = ErrorCode.INTERNAL_SERVER_ERROR;
+        ErrorResponse errorResponse = ErrorResponse.builder()
+            .status(errorCode.getStatus().value())
+            .code("INTERNAL_SERVER_ERROR")
+            .message(errorCode.getMessage())
+            .build();
+        return ResponseEntity.status(errorCode.getStatus()).body(errorResponse);
     }
 }

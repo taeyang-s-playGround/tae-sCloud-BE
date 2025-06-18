@@ -15,7 +15,7 @@ public class SignUpRequest {
     @NotNull(message = "name는 필수 입력값입니다")
     private String name;
 
-    @NotNull(message = "password는 필수 입력값입니다")
+    @NotNull
     private String password;
 
     @NotNull(message = "deviceToken는 필수 입력값입니다")
