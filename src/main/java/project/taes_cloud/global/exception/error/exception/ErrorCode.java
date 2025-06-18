@@ -1,4 +1,4 @@
-package project.software.global.security.config.error.exception;
+package project.taes_cloud.global.exception.error.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

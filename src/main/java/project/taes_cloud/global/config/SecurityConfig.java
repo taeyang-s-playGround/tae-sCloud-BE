@@ -1,4 +1,4 @@
-package project.taes_cloud.global.security.config;
+package project.taes_cloud.global.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -28,23 +28,25 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .httpBasic().disable()
-                .formLogin().disable()
-                .logout().disable();
-
-        http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        http.addFilterBefore(new JwtTokenFilter(jwtProvider),
-                UsernamePasswordAuthenticationFilter.class);
-
-        http.cors().and()
-                .authorizeRequests()
-                .anyRequest().permitAll();
-
-        http.exceptionHandling().authenticationEntryPoint(
-                new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
+        http
+            .csrf(csrf -> csrf.disable())
+            .httpBasic(basic -> basic.disable())
+            .formLogin(login -> login.disable())
+            .logout(logout -> logout.disable())
+            .sessionManagement(session -> 
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            )
+            .addFilterBefore(new JwtTokenFilter(jwtProvider),
+                    UsernamePasswordAuthenticationFilter.class)
+            .cors(cors -> cors.configure(http))
+            .authorizeHttpRequests(auth ->
+                auth.anyRequest().permitAll()
+            )
+            .exceptionHandling(exception ->
+                exception.authenticationEntryPoint(
+                    new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)
+                )
+            );
 
         return http.build();
     }

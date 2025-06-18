@@ -1,7 +1,7 @@
 package project.taes_cloud.domain.auth.exception;
 
-import project.taes_cloud.global.security.config.error.exception.CustomException;
-import project.taes_cloud.global.security.config.error.exception.ErrorCode;
+import project.taes_cloud.global.exception.error.exception.CustomException;
+import project.taes_cloud.global.exception.error.exception.ErrorCode;
 
 public class AccountIdAlreadyExistsException extends CustomException {
 
