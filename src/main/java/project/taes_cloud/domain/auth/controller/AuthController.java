@@ -15,8 +15,6 @@ import project.taes_cloud.domain.auth.controller.dto.request.SignUpRequest;
 import project.taes_cloud.domain.auth.controller.dto.request.response.ImageUrlListResponse;
 import project.taes_cloud.domain.auth.controller.dto.request.response.ImageUrlResponse;
 import project.taes_cloud.domain.auth.controller.dto.request.response.TokenResponse;
-import project.taes_cloud.domain.auth.service.ImageUploadService;
-import project.taes_cloud.domain.auth.service.ImagesUploadService;
 import project.taes_cloud.domain.auth.service.SignInService;
 import project.taes_cloud.domain.auth.service.SignUpService;
 
@@ -29,8 +27,8 @@ public class AuthController {
 
     private final SignUpService signUpService;
     private final SignInService signInService;
-    private final ImageUploadService imageUploadService;
-    private final ImagesUploadService imagesUploadService;
+   // private final ImageUploadService imageUploadService;
+   // private final ImagesUploadService imagesUploadService;
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
