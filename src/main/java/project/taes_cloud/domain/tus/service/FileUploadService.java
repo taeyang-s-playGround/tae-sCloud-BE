@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -28,23 +29,23 @@ public class FileUploadService {
             // PATCH 요청일 경우에만 저장 처리 시도
             if ("PATCH".equalsIgnoreCase(request.getMethod())) {
                 UploadInfo uploadInfo = tusFileUploadService.getUploadInfo(request.getRequestURI());
-                log.info("uploadInfo: {}", uploadInfo);
 
                 if (uploadInfo != null && !uploadInfo.isUploadInProgress()) {
-                    log.info("업로드 완료됨: {}", uploadInfo.getFileName());
+                    String filename = uploadInfo.getFileName();
+                    log.info("업로드 완료됨: {}", filename);
 
-                    // 파일 생성
-                    createFile(
-                        tusFileUploadService.getUploadedBytes(request.getRequestURI()),
-                        uploadInfo.getFileName()
-                    );
+                    try (InputStream is = tusFileUploadService.getUploadedBytes(request.getRequestURI())) {
+                        File targetFile = new File("C:/taes", filename);
+                        FileUtils.copyInputStreamToFile(is, targetFile);
+                        log.info("파일 저장 완료: {}", targetFile.getAbsolutePath());
+                    }
 
-                    // 업로드 정보 정리
                     tusFileUploadService.deleteUpload(request.getRequestURI());
                 } else {
                     log.info("업로드 진행 중이거나 uploadInfo가 없음");
                 }
             }
+
 
         } catch (IOException | TusException e) {
             log.error("예외 발생: {}", e.getMessage(), e);
