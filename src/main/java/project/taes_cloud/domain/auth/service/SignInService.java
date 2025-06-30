@@ -14,7 +14,7 @@ import project.taes_cloud.global.security.security.jwt.JwtTokenProvider;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class SignInService {
 
     private final UserRepository userRepository;
